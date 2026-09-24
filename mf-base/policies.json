@@ -1,5 +1,8 @@
 {
   "policies": {
+		"SearchEngines": {
+      "Default": "DuckDuckGo"
+    },
     "ExtensionSettings": {
       "newtab@tabliss.io": {
         "installation_mode": "normal_installed",
