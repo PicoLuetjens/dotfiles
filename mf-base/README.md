@@ -10,6 +10,7 @@ Typical Pathes:
 - Linux: /etc/firefox/policies/policies.json
 - macOS: /Applications/Firefox.app/Contents/Resources/distribution/policies.json
 
+---
 
 - *policies.json*: meant for browsers that come with ublock origin installed by default e.g. **librewolf**
 - *mf-policies.json*: meant for browsers that do not come with ublock origin by default e.g. **mozilla firefox and most others**
