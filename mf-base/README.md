@@ -15,3 +15,6 @@ Typical Pathes:
 - *mf-policies.json*: meant for browsers that do not come with ublock origin by default e.g. **mozilla firefox and most others**
 
 All other files are addon configuration files
+
+Important: The policies.json file is a firefox (gecko) configuration feature and does not work with chrome (chromium) based browsers.
+Some firefox forks might also not support the firefox base features, although librewolf does.
