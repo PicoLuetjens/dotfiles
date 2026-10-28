@@ -2,7 +2,7 @@
 
 # git gone – deletes locally checked-out Branches, whose Upstream-Branch does not exist on the remote anymore.
 #
-# Nutzung: git gone [-n|--dry-run] [-f|--force] [-h]
+# Usage: git gone [-n|--dry-run] [-f|--force] [-h]
 #   -n, --dry-run   just show, what would be deleted
 #   -f, --force     delete unmerged branches too(for example after Squash-Merges)
 #   -h              shop help
