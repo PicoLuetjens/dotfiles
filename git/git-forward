@@ -1,0 +1,46 @@
+#!/usr/bin/env sh
+
+# git forward – rebases the current branch onto a target branch,
+# replaying commits made since the branches diverged.
+#
+# Nutzung: git forward <target branch> [-h|--help]
+#   -h, --help   show help
+#
+# Beispiel:
+#   git forward main
+
+set -e
+
+usage() {
+	sed -n '2,9s/^# \{0,1\}//p' "$0"
+}
+
+if [ "$#" -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" = "--help" ]; }; then
+	usage
+	exit 0
+fi
+
+if [ "$#" -ne 1 ]; then
+	echo "Usage: git forward <target branch>" >&2
+	echo "Try 'git forward --help' for more information." >&2
+	exit 2
+fi
+
+target="$1"
+
+if ! git rev-parse --verify --quiet "$target^{commit}" >/dev/null; then
+	echo "git forward: target '$target' does not exist or is not a valid commit." >&2
+	exit 1
+fi
+
+base=$(git merge-base "$target" HEAD) || {
+	echo "git forward: could not determine merge-base for '$target' and HEAD." >&2
+	exit 1
+}
+
+echo "Rebasing current branch onto '$target'..."
+echo "Using merge-base: $base"
+
+git rebase --onto "$target" "$base"
+
+echo "Successfully rebased current branch onto '$target'."
