@@ -3,10 +3,10 @@
 # git forward – rebases the current branch onto a target branch,
 # replaying commits made since the branches diverged.
 #
-# Nutzung: git forward <target branch> [-h|--help]
+# Usage: git forward <target branch> [-h|--help]
 #   -h, --help   show help
 #
-# Beispiel:
+# Example:
 #   git forward main
 
 set -e
