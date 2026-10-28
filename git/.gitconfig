@@ -1,0 +1,63 @@
+[user]
+    name = Pico Lütjens
+    email = pico.luetjens@web.de
+    signingkey = ~.ssh/{PUB_KEY}.pub  # sign commits with ssh (no gpg)
+
+[gpg]
+    format = ssh
+
+[commit]
+    gpgsign = true
+    verbose = true    # show diff in commit editor
+
+[init]
+    defaultBranch = develop
+
+[core]
+    editor = code --wait
+    pager = delta    # more prettier difs using git-delta
+    autocrfl = input    # windows-linux line breaks
+    fsmonitor = true    # faster git status
+    untrackedCache = true
+
+[pull]
+    rebase = true
+
+[rebase]
+    autoSquash = true    # squash fixup!-commits
+    autoStash = true    # stash before rebase and auto pop stash afterwords
+    updateRefs = true    # important for stacked MRs
+
+[merge]
+    conflictStyle = zdiff3    # show shared base in conflicts too
+
+[rerere]
+    enabled = true    # remember how to solve specific conflicts
+
+[push]
+    autoSetupRemote = true    # auto sets --set-upstream when upstream does not exist
+    followTags = true
+
+[fetch]
+    prune = true    # auto clean up local branches
+    pruneTags = true
+
+[diff]
+    algorithm = histogramm    # better diffs than default
+    colorMoved = zebra    # moved code will be colored in another way#
+    renames = copies
+
+[branch]
+    sort = -comitterdate    # sort branches after last edited
+
+[tag]
+    sort = version:refname    # sort from new to old tags
+
+[help]
+    autocorrect = prompt    # ask for typos
+
+[alias]
+    lg = log --graph --oneline --decorate --all
+    fixup = commit --fixup
+    fl = push --force-with-lease --force-if-includes
+    undo = reset --soft HEAD~1
